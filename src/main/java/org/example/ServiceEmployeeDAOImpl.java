@@ -1,6 +1,4 @@
 package org.example;
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -39,6 +37,16 @@ public class ServiceEmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public void updateEmployeeByIdInConstructor(Employee employee) {
+
+    }
+
+    @Override
+    public void deleteEmployeeByIdInConstructor(Employee employee) {
+
+    }
+
+    @Override
+    public void updateEmployee(Employee employee) {
         try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             session.update(employee);
@@ -47,7 +55,7 @@ public class ServiceEmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
-    public void deleteEmployeeByIdInConstructor(Employee employee) {
+    public void deleteEmployee(Employee employee) {
         try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             session.delete(employee);
